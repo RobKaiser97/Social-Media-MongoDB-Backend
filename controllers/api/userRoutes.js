@@ -50,7 +50,7 @@ router.delete('/:userId', async (req, res) => {
   }
 });
 
-router.put('/:userId/friends/:friendId', async (req, res) => {
+router.post('/:userId/friends/:friendId', async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(
       req.params.userId,
@@ -87,4 +87,4 @@ router.delete('/:userId/friends/:friendId', async (req, res) => {
   }
 });
 
-module.export = router
+module.exports = router
