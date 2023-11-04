@@ -4,7 +4,7 @@
   "description": "API for a social media site using MongoDB for the database solution",
   "main": "index.js",
   "scripts": {
-    "seed": "node /utils/seed.js",
+    "seed": "node utils/seed.js",
     "start": "nodemon server.js"
   },
   "repository": {
