@@ -1,5 +1,6 @@
 const db = require('../config/connection');
 const { User, Thought } = require('../models');
+const { Types } = require('mongoose');
 const moment = require('moment');
 
 // Helper function to generate a random date within the last week
@@ -25,11 +26,11 @@ const thoughtData = [
 ];
 
 const reactionData = [
-  { reactionBody: 'Great thought!', username: 'userOne' },
-  { reactionBody: 'Really made me think.', username: 'userTwo' },
-  { reactionBody: 'I disagree with this.', username: 'userThree' },
-  { reactionBody: 'Could you explain more?', username: 'userFour' },
-  { reactionBody: 'What an insight!', username: 'userFive' },
+  { reactionBody: 'Great thought!', username: 'userOne', reactionId: new Types.ObjectId() },
+  { reactionBody: 'Really made me think.', username: 'userTwo', reactionId: new Types.ObjectId() },
+  { reactionBody: 'I disagree with this.', username: 'userThree', reactionId: new Types.ObjectId() },
+  { reactionBody: 'Could you explain more?', username: 'userFour', reactionId: new Types.ObjectId() },
+  { reactionBody: 'What an insight!', username: 'userFive', reactionId: new Types.ObjectId() },
 ];
 
 db.once('open', async () => {
@@ -55,6 +56,7 @@ db.once('open', async () => {
     for (let reaction of reactionData) {
       const thought = thoughts[Math.floor(Math.random() * thoughts.length)]; // Random thought for each reaction
       thought.reactions.push({
+        reactionId: reaction.reactionId,
         reactionBody: reaction.reactionBody,
         username: reaction.username,
         createdAt: randomDate(moment().subtract(1, 'week').toDate(), new Date())
@@ -64,7 +66,18 @@ db.once('open', async () => {
 
     // Make friends association
     for (let i = 0; i < users.length; i++) {
-      const friendIds = users.filter((_, index) => index !== i).map(friend => friend._id);
+      // Generate a random number of friends
+      const numFriends = Math.floor(Math.random() * users.length);
+
+      // Create a shuffled array of user indices
+      const indices = [...Array(users.length).keys()].sort(() => Math.random() - 0.5);
+
+      // Select the first numFriends indices, excluding the current user's index
+      const friendIndices = indices.filter(index => index !== i).slice(0, numFriends);
+
+      // Map the selected indices to their corresponding user IDs
+      const friendIds = friendIndices.map(index => users[index]._id);
+
       users[i].friends = friendIds;
       await users[i].save();
     }
