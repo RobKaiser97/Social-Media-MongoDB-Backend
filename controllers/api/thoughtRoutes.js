@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:thoughtId', async (req, res) => {
   try {
     const oneThought = await Thought.findById(req.params.thoughtId)
-      .populate('reactions')
-      .populate('thoughts');
+      .populate('reactions');
     res.status(200).json(oneThought);
   } catch (err) {
     res.status(500).json(err)
@@ -62,8 +61,8 @@ router.delete('/:thoughtId', async (req, res) => {
     if (!deletedThought) {
       return res.status(404).json({ message: 'No thought found with this id!' });
     }
-    await User.findByIdAndUpdate(
-      deletedThought.userId,
+    await User.updateMany(
+      {},
       { $pull: { thoughts: deletedThought._id } },
       { new: true }
     );
@@ -95,7 +94,7 @@ router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
   try {
     const updatedThought = await Thought.findByIdAndUpdate(
       req.params.thoughtId,
-      { $pull: { reactions: { reactionId: req.params.reactionId } } },
+      { $pull: { reactions: { _id: req.params.reactionId } } },
       { new: true }
     );
     if (!updatedThought) {
@@ -106,3 +105,5 @@ router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
