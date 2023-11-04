@@ -1,0 +1,19 @@
+{
+  "name": "social-media-mongodb-backend",
+  "version": "1.0.0",
+  "description": "API for a social media site using MongoDB for the database solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobKaiser97/Social-Media-MongoDB-Backend.git"
+  },
+  "author": "Robert Kaiser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RobKaiser97/Social-Media-MongoDB-Backend/issues"
+  },
+  "homepage": "https://github.com/RobKaiser97/Social-Media-MongoDB-Backend#readme"
+}
