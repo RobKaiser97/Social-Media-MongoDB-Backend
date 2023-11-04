@@ -79,7 +79,7 @@ router.post('/:thoughtId/reactions', async (req, res) => {
     const updatedThought = await Thought.findByIdAndUpdate(
       req.params.thoughtId,
       { $push: { reactions: req.body } },
-      { new: true, runValidators: true }
+      { new: true }
     );
     if (!updatedThought) {
       return res.status(404).json({ message: 'No thought found with this id!' });
