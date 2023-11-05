@@ -27,7 +27,7 @@ For running this project locally, simply go to the terminal window where `server
 npm start
 ```
 
-Watch a step-by-step [tutorial video here,](https://drive.google.com/file/d/1f3HuWq1oKf-Ie9a5q56BhjzBJPixppZQ/view) [ here,](https://drive.google.com/file/d/1q8ph6vKBm9uILRpLxsd0NWB_oAlxgd58/view) [ and here](https://drive.google.com/file/d/1pbqJsGh8gzcJGElrfX408SborBoHY6o3/view)for a guided walkthrough on managing the database operations! Videos are also available here as gif's:
+Watch a step-by-step [tutorial video here,](https://drive.google.com/file/d/1f3HuWq1oKf-Ie9a5q56BhjzBJPixppZQ/view) [ here,](https://drive.google.com/file/d/1q8ph6vKBm9uILRpLxsd0NWB_oAlxgd58/view) [ and here](https://drive.google.com/file/d/1pbqJsGh8gzcJGElrfX408SborBoHY6o3/view)for a guided walkthrough on managing the database operations! Videos are also available here as gif's:<br>
 ![walkthrough](Untitled_%20Nov%204%2C%202023%207_05%20PM.gif)
 ![walkthrough](Untitled_%20Nov%204%2C%202023%206_50%20PM.gif)
 ![walkthrough](Untitled_%20Nov%204%2C%202023%206_40%20PM.gif)
