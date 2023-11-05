@@ -28,7 +28,9 @@ npm start
 ```
 
 Watch a step-by-step [tutorial video here,](https://drive.google.com/file/d/1f3HuWq1oKf-Ie9a5q56BhjzBJPixppZQ/view) [ here,](https://drive.google.com/file/d/1q8ph6vKBm9uILRpLxsd0NWB_oAlxgd58/view) [ and here](https://drive.google.com/file/d/1pbqJsGh8gzcJGElrfX408SborBoHY6o3/view)for a guided walkthrough on managing the database operations! Videos are also available here as gif's:
-[!gif]
+![walkthrough]()
+![walkthrough]()
+![walkthrough]()
 
 ## License
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
